@@ -16,8 +16,30 @@ set tabstop=2
 " nmap gC :let &colorcolumn=join(range(999,999),",")<CR>
 " nmap ge :vertical resize 85<CR>
 
-syn case match
+" map each number to its shift-key character
+"inoremap 1 !
+"inoremap 2 @
+"inoremap 3 #
+"inoremap 4 $
+"inoremap 5 %
+"inoremap 6 ^
+"inoremap 7 &
+"inoremap 8 *
+"inoremap 9 (
+"inoremap 0 )
+" and then the opposite
+"inoremap ! 1
+"inoremap @ 2
+"inoremap # 3
+"inoremap $ 4
+"inoremap % 5
+"inoremap ^ 6
+"inoremap & 7
+"inoremap * 8
+"inoremap ( 9
+"inoremap ) 0
 
+syn case match
 
 " Declarations
 hi def link     hoonDeclaration   Define 
@@ -33,7 +55,7 @@ hi def link     hoonComment       Comment
 hi def link     hoonTodo          Todo
 hi def link     hoonString        String
 
-syn match       hoonDeclaration   "++" nextgroup=hoonSymbolDec skipwhite 
+syn match       hoonDeclaration   "+[+-]" nextgroup=hoonSymbolDec skipwhite 
 syn match       hoonSymbol        /%\%(\%(\%(\w\|-\)\+\)\|[|&$]\|\%(\.n\)\|\%(\.y\)\)/
 syn match       hoonAtom          /\%(@\w*\)\|\^/
 syn match       hoonName          "\w*" contained
@@ -75,6 +97,7 @@ syn match       hoonRune          "|+"
 syn match       hoonRune          "|\*"
 syn match       hoonRune          "|="
 syn match       hoonRune          "|?"
+syn match       hoonRune          "|\/"
 syn match       hoonRune          "%_"
 syn match       hoonRune          "%:"
 syn match       hoonRune          "%\."
@@ -153,6 +176,7 @@ syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=<"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=>"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=-"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=+"
+syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=\*"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=\~"
 syn match       hoonRune          "?|"
 syn match       hoonRune          "?:"
