@@ -1,8 +1,5 @@
 "hoon.vim: Hoon syntax file
-"Credit goes to Fode
-"
-" With contributions from Philip C Monk
-
+" Eric Fode, Philip C Monk
 
 if exists("b:current_syntax")
   finish
@@ -16,28 +13,30 @@ set tabstop=2
 " nmap gC :let &colorcolumn=join(range(999,999),",")<CR>
 " nmap ge :vertical resize 85<CR>
 
-" map each number to its shift-key character
-"inoremap 1 !
-"inoremap 2 @
-"inoremap 3 #
-"inoremap 4 $
-"inoremap 5 %
-"inoremap 6 ^
-"inoremap 7 &
-"inoremap 8 *
-"inoremap 9 (
-"inoremap 0 )
-" and then the opposite
-"inoremap ! 1
-"inoremap @ 2
-"inoremap # 3
-"inoremap $ 4
-"inoremap % 5
-"inoremap ^ 6
-"inoremap & 7
-"inoremap * 8
-"inoremap ( 9
-"inoremap ) 0
+" Because symobls are used much more than numbers, some
+" developers swap the number and symbol keys in insert
+" mode.  This is disabled by default.  Uncomment the
+" following lines to enable.
+" inoremap 1 !
+" inoremap 2 @
+" inoremap 3 #
+" inoremap 4 $
+" inoremap 5 %
+" inoremap 6 ^
+" inoremap 7 &
+" inoremap 8 *
+" inoremap 9 (
+" inoremap 0 )
+" inoremap ! 1
+" inoremap @ 2
+" inoremap # 3
+" inoremap $ 4
+" inoremap % 5
+" inoremap ^ 6
+" inoremap & 7
+" inoremap * 8
+" inoremap ( 9
+" inoremap ) 0
 
 syn case match
 
