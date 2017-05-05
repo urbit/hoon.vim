@@ -9,6 +9,8 @@ set autoindent
 map g/ /++  
 nmap gs :let varname = '\<<C-R><C-W>\>'<CR>?++  <C-R>=varname<CR><CR>
 set tabstop=2
+set expandtab
+set shiftwidth=2
 " nmap gc :let &colorcolumn=join(range(81,999),",")<CR>
 " nmap gC :let &colorcolumn=join(range(999,999),",")<CR>
 " nmap ge :vertical resize 85<CR>
