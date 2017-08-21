@@ -15,52 +15,36 @@ set shiftwidth=2
 " nmap gC :let &colorcolumn=join(range(999,999),",")<CR>
 " nmap ge :vertical resize 85<CR>
 
-" Because symobls are used much more than numbers, some
-" developers swap the number and symbol keys in insert
-" mode.  This is disabled by default.  Uncomment the
-" following lines to enable.
-" inoremap 1 !
-" inoremap 2 @
-" inoremap 3 #
-" inoremap 4 $
-" inoremap 5 %
-" inoremap 6 ^
-" inoremap 7 &
-" inoremap 8 *
-" inoremap 9 (
-" inoremap 0 )
-" inoremap ! 1
-" inoremap @ 2
-" inoremap # 3
-" inoremap $ 4
-" inoremap % 5
-" inoremap ^ 6
-" inoremap & 7
-" inoremap * 8
-" inoremap ( 9
-" inoremap ) 0
-
 syn case match
 
 " Declarations
-hi def link     hoonDeclaration   Define 
+hi def link     hoonArm           Keyword 
 hi def link     hoonSymbol        Constant 
-hi def link     hoonAtom          Identifier
+hi def link     hoonAtom          Constant
 hi def link     hoonRune          Operator
 hi def link     hoonIdentifier    Identifier
 hi def link     hoonBranch        Conditional
 hi def link     hoonType          Type
 " hi def link     hoonName          Constant
-hi def link     hoonNumber        Number
+hi def link     hoonNumber        Type
 hi def link     hoonComment       Comment
 hi def link     hoonTodo          Todo
 hi def link     hoonString        String
+hi def link     hoonSpecial       Number
+hi def link     hoonColdString    Constant
+hi def link     hoonLoobean       Boolean
 
-syn match       hoonDeclaration   "+[+-]" nextgroup=hoonSymbolDec skipwhite 
-syn match       hoonSymbol        /%\%(\%(\%(\w\|-\)\+\)\|[|&$]\|\%(\.n\)\|\%(\.y\)\)/
-syn match       hoonAtom          /\%(@\w*\)\|\^/
+syn match       hoonArm           "+[+-]" nextgroup=hoonSymbol skipwhite 
+syn match       hoonSymbol        "[%\$](\w|-)+"
+syn match       hoonAtom          /\%(@\w*\)|\^/
 syn match       hoonName          "\w*" contained
 syn match       hoonSymbolDec     "\w\w\+" contained contains=hoonName
+syn match       hoonColdString    /\$\%(\w*\)/
+syn match       hoonColdString    /[<>-\+\$]/
+syn match       hoonSpecial       /[\~\.\@]/
+syn match       hoonLoobean       /[|&]/
+syn match       hoonLoobean       /[%\$]\.[yn]/
+
 
 " numbers
 " Numbers are in decimal, binary, hex, base32, or base64, and they must
@@ -76,7 +60,6 @@ syn match       hoonNumber        "0w[-~0-9a-zA-Z]\{1,5\}\%(\.\_s*[-~0-9a-zA-Z]\
 " comments
 
 syn region      hoonComment       start="::" end="$" contains=@spell,hoonTodo
-syn keyword     hoonTodo          contained XX XXX TODO FIXME
 
 " strings
 
@@ -158,6 +141,7 @@ syn match       hoonRune          ";_"
 syn match       hoonRune          ";,"
 syn match       hoonRune          ";%"
 syn match       hoonRune          ";:"
+syn match       hoonRune          ";/"
 syn match       hoonRune          ";\."
 syn match       hoonRune          ";<"
 syn match       hoonRune          ";>"
