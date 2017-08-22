@@ -21,29 +21,31 @@ syn case match
 hi def link     hoonArm           Keyword 
 hi def link     hoonSymbol        Constant 
 hi def link     hoonAtom          Constant
+hi def link     hoonAtomType      Constant
+hi def link     hoonCubeType      Constant
+hi def link     hoonCube          Constant
 hi def link     hoonRune          Operator
-hi def link     hoonIdentifier    Identifier
+hi def link     hoonId            Normal
 hi def link     hoonBranch        Conditional
 hi def link     hoonType          Type
-" hi def link     hoonName          Constant
 hi def link     hoonNumber        Type
 hi def link     hoonComment       Comment
 hi def link     hoonTodo          Todo
 hi def link     hoonString        String
-hi def link     hoonSpecial       Number
+hi def link     hoonSingleton     Identifier
 hi def link     hoonColdString    Constant
-hi def link     hoonLoobean       Boolean
+hi def link     hoonLoobean       Identifier
+hi def link     hoonLoobeanType   Constant
 
-syn match       hoonArm           "+[+-]" nextgroup=hoonSymbol skipwhite 
-syn match       hoonSymbol        "[%\$](\w|-)+"
-syn match       hoonAtom          /\%(@\w*\)|\^/
-syn match       hoonName          "\w*" contained
-syn match       hoonSymbolDec     "\w\w\+" contained contains=hoonName
-syn match       hoonColdString    /\$\%(\w*\)/
-syn match       hoonColdString    /[<>-\+\$]/
-syn match       hoonSpecial       /[\~\.\@]/
-syn match       hoonLoobean       /[|&]/
-syn match       hoonLoobean       /[%\$]\.[yn]/
+syn match       hoonSingleton     /\v[\`\~\.\@\*]/
+syn region      hoonArm           start=/\v\+[\+\-]/ end=/\v\w(\w|\-)*/
+syn match       hoonAtomType      /\v\@(\w*)/
+syn match       hoonCubeType      /\v\$\w(\w|\-)*/
+syn match       hoonCube          /\v\%\w(\w|\-)*/
+syn match       hoonLoobean       /\v[|&]/
+syn match       hoonLoobean       /\v\%\.[yn]/
+syn match       hoonLoobeanType   /\v\$\.[yn]/
+syn match       hoonId            /\v\l[\l\d\-]*/
 
 
 " numbers
