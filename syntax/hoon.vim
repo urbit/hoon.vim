@@ -38,7 +38,7 @@ hi def link     hoonLoobean       Identifier
 hi def link     hoonLoobeanType   Constant
 
 syn match       hoonSingleton     /\v[\`\~\.\@\*]/
-syn region      hoonArm           start=/\v\+[\+\-]/ end=/\v\w(\w|\-)*/
+syn region      hoonArm           start=/\v\+[\+\-=]/ end=/\v\w(\w|\-)*/
 syn match       hoonAtomType      /\v\@(\w*)/
 syn match       hoonCubeType      /\v\$\w(\w|\-)*/
 syn match       hoonCube          /\v\%\w(\w|\-)*/
@@ -61,7 +61,8 @@ syn match       hoonNumber        "0w[-~0-9a-zA-Z]\{1,5\}\%(\.\_s*[-~0-9a-zA-Z]\
 
 " comments
 
-syn region      hoonComment       start="::" end="$" contains=@spell,hoonTodo
+syn region      hoonComment       start=":\(:\|>\|<\)" end="$" contains=@spell,hoonTodo
+syn region      hoonComment       start="+|" end="$" contains=@spell,hoonTodo
 
 " strings
 
@@ -156,6 +157,7 @@ syn match       hoonRune          ";\*"
 syn match       hoonRune          ";="
 syn match       hoonRune          ";?"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=|"
+syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=?"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=\."
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=\^"
 syn match       hoonRune          "\%([^a-zA-Z]\|^\)\zs=:"
