@@ -46,6 +46,7 @@ syn match       hoonLoobean       /\v[|&]/
 syn match       hoonLoobean       /\v\%\.[yn]/
 syn match       hoonLoobeanType   /\v\$\.[yn]/
 syn match       hoonId            /\v\l[\l\d\-]*/
+syn match       hoonCube          /\v\l(\l|\d|\-)*\+/he=e-1
 
 
 " numbers
