@@ -1,3 +1,11 @@
+" Uncomment this line to enable the shortcut to add a hoon comment.
+" nnoremap <Leader>c :call HoonComment()<CR>
+
+function! HoonComment()
+  call feedkeys("\$80a\<Space>\<Esc>d57\|i::\<Space>\<Space>")
+endfunction
+
+
 if exists("b:hoon_did_submode_mapping") || !exists("g:hoon_ninja") || g:hoon_ninja == 0
   finish
 endif
