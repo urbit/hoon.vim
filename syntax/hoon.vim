@@ -6,20 +6,28 @@ if exists("b:current_syntax")
 endif
 
 set autoindent
-map g/ /+\(+\\|=\\|\-\)  
+map g/ /+\(+\\|=\\|\-\\|\$\\|\*\)  
 nmap gs :let varname = '\<<C-R><C-W>\>'<CR>?++  <C-R>=varname<CR><CR>
 set tabstop=2
 set expandtab
 set shiftwidth=2
-" nmap gc :let &colorcolumn=join(range(81,999),",")<CR>
-" nmap gC :let &colorcolumn=join(range(999,999),",")<CR>
-" nmap ge :vertical resize 85<CR>
+
+" Allow gq, o, and <Enter> to understand comments
+let b:comment_leader = '::  '
+set comments=:::
+set fo+=rq
+
+" Don't wrap code at 72 characters, just comments
+set fo-=t
+
+" limit to 72 characters
+set tw=72
 
 syn case match
 
 " Declarations
-hi def link     hoonArm           Keyword 
-hi def link     hoonSymbol        Constant 
+hi def link     hoonArm           Keyword
+hi def link     hoonSymbol        Constant
 hi def link     hoonAtom          Constant
 hi def link     hoonAtomType      Constant
 hi def link     hoonCubeType      Constant
@@ -38,10 +46,12 @@ hi def link     hoonLoobean       Identifier
 hi def link     hoonLoobeanType   Constant
 
 syn match       hoonSingleton     /\v[\`\~\.\@\*]/
-syn region      hoonArm           start=/\v\+[\+\-=]/ end=/\v\w(\w|\-)*/
+syn region      hoonArm           start=/\v\+[\+\-=\$\*]/ end=/\v\w(\w|\-)*/
 syn match       hoonAtomType      /\v\@(\w*)/
 syn match       hoonCubeType      /\v\$\w(\w|\-)*/
+syn match       hoonCubeType      /\v\$\$/
 syn match       hoonCube          /\v\%\w(\w|\-)*/
+syn match       hoonCube          /\v\%(\&|\||\$)/
 syn match       hoonLoobean       /\v[|&]/
 syn match       hoonLoobean       /\v\%\.[yn]/
 syn match       hoonLoobeanType   /\v\$\.[yn]/
@@ -104,6 +114,9 @@ syn match       hoonRune          "\$&"
 syn match       hoonRune          "\$?"
 syn match       hoonRune          "\$+"
 syn match       hoonRune          "\$="
+syn match       hoonRune          "\$\~"
+syn match       hoonRune          "\$\^"
+syn match       hoonRune          "\$@"
 syn match       hoonRune          ":_"
 syn match       hoonRune          ":\~"
 syn match       hoonRune          ":/"
