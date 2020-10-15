@@ -15,6 +15,8 @@ set shiftwidth=2
 " Allow gq, o, and <Enter> to understand comments
 let b:comment_leader = '::  '
 set comments=:::
+set commentstring=::%s
+set iskeyword+=-
 set fo+=rq
 
 " Don't wrap code at 72 characters, just comments
