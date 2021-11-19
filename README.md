@@ -34,7 +34,7 @@ And start the language server at the Urbit Dojo prompt with:
 Then, you can connect to this language server with any vim LSP plugin.
 Here's one full-featured configuration, using
 [UltiSnips](https://github.com/SirVer/ultisnips) for snippets,
-[asyncomplete.vim](https://gitub.com/prabirshrestha/asyncomplete.vim)
+[asyncomplete.vim](https://github.com/prabirshrestha/asyncomplete.vim)
 for autocomplete and
 [vim-lsp](https://github.com/prabirshrestha/vim-lsp) to connect to the
 language server.
