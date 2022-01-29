@@ -6,7 +6,8 @@ if exists("b:current_syntax")
 endif
 
 set autoindent
-map g/ /+\(+\\|=\\|\-\\|\$\\|\*\)
+" NB: trailing whitespace is significant
+map g/ /+\(+\\|=\\|\-\\|\$\\|\*\)  
 nmap gs :let varname = '\<<C-R><C-W>\>'<CR>?++  <C-R>=varname<CR><CR>
 set tabstop=2
 set expandtab
