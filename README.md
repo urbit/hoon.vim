@@ -96,3 +96,5 @@ endif
 ```
 
 Various other combinations of plugins are possible, to taste.
+
+For using this language server with Neovim refer to the configuration provided by [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#hoon_ls).
