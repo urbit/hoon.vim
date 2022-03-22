@@ -90,6 +90,7 @@ syn region      hoonString        start=+"+ skip=+\\[\\"]+ end=+"+ contains=@spe
 syn match       hoonRune          "||"
 syn match       hoonRune          "|_"
 syn match       hoonRune          "|%"
+syn match       hoonRune          "|@"
 syn match       hoonRune          "|:"
 syn match       hoonRune          "|\."
 syn match       hoonRune          "|-"
