@@ -15,7 +15,7 @@ Server](https://github.com/urbit/hoon-language-server).  Install it
 with:
 
 ```bash
-npm install -g hoon-language-server
+npm install -g @urbit/hoon-language-server
 ```
 
 Install and build [Urbit](https://github.com/urbit/urbit).  Then, start
